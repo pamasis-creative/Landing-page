@@ -3,7 +3,7 @@
   if(!section) return;
   const cfg=window.PAMASIS_CMS_CONFIG||{};
   if(!cfg.supabaseUrl||!cfg.supabaseAnonKey||cfg.supabaseUrl.includes('YOUR_PROJECT')) return;
-  const api=cfg.supabaseUrl.replace(/\/$/,'')+'/rest/v1/pamasis_campaigns?select=*&status=eq.published&order=sort_order.asc,created_at.desc';
+  const api=cfg.supabaseUrl.replace(/\/$/,'')+'/rest/v1/pamasis_campaigns?select=*&status=in.(published,scheduled)&order=sort_order.asc,created_at.desc';
   fetch(api,{headers:{apikey:cfg.supabaseAnonKey,Authorization:'Bearer '+cfg.supabaseAnonKey}})
     .then(r=>{if(!r.ok) throw new Error('Campaign request failed');return r.json();})
     .then(rows=>{
