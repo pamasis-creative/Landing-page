@@ -34,13 +34,12 @@ using (
   and (ends_at is null or ends_at > now())
 );
 
--- Admin writes are authenticated users only. Restrict access to approved admin emails.
--- Replace the example email with the account you will use to manage campaigns.
+-- Admin writes are authenticated users only. Restrict access to the approved admin email.
 drop policy if exists "Approved admins manage campaigns" on public.pamasis_campaigns;
 create policy "Approved admins manage campaigns"
 on public.pamasis_campaigns for all to authenticated
-using ((auth.jwt() ->> 'email') in ('REPLACE_WITH_ADMIN_EMAIL'))
-with check ((auth.jwt() ->> 'email') in ('REPLACE_WITH_ADMIN_EMAIL'));
+using ((auth.jwt() ->> 'email') in ('pamasisinc@gmail.com'))
+with check ((auth.jwt() ->> 'email') in ('pamasisinc@gmail.com'));
 
 -- Storage bucket for campaign media. Uploads are limited to images/videos via admin UI.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
@@ -58,7 +57,7 @@ create policy "Approved admins upload campaign media"
 on storage.objects for insert to authenticated
 with check (
   bucket_id = 'pamasis-campaign-media'
-  and (auth.jwt() ->> 'email') in ('REPLACE_WITH_ADMIN_EMAIL')
+  and (auth.jwt() ->> 'email') in ('pamasisinc@gmail.com')
 );
 
 drop policy if exists "Approved admins update campaign media" on storage.objects;
@@ -66,11 +65,11 @@ create policy "Approved admins update campaign media"
 on storage.objects for update to authenticated
 using (
   bucket_id = 'pamasis-campaign-media'
-  and (auth.jwt() ->> 'email') in ('REPLACE_WITH_ADMIN_EMAIL')
+  and (auth.jwt() ->> 'email') in ('pamasisinc@gmail.com')
 )
 with check (
   bucket_id = 'pamasis-campaign-media'
-  and (auth.jwt() ->> 'email') in ('REPLACE_WITH_ADMIN_EMAIL')
+  and (auth.jwt() ->> 'email') in ('pamasisinc@gmail.com')
 );
 
 drop policy if exists "Approved admins delete campaign media" on storage.objects;
@@ -78,7 +77,7 @@ create policy "Approved admins delete campaign media"
 on storage.objects for delete to authenticated
 using (
   bucket_id = 'pamasis-campaign-media'
-  and (auth.jwt() ->> 'email') in ('REPLACE_WITH_ADMIN_EMAIL')
+  and (auth.jwt() ->> 'email') in ('pamasisinc@gmail.com')
 );
 
 create or replace function public.set_campaign_updated_at()
