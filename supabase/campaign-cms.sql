@@ -24,6 +24,11 @@ create table if not exists public.pamasis_campaigns (
 
 alter table public.pamasis_campaigns enable row level security;
 
+-- Restrict table privileges as well as row-level policies.
+revoke all on table public.pamasis_campaigns from anon, authenticated;
+grant select on table public.pamasis_campaigns to anon, authenticated;
+grant insert, update, delete on table public.pamasis_campaigns to authenticated;
+
 -- Public can only read currently published and in-date campaigns.
 drop policy if exists "Public reads active campaigns" on public.pamasis_campaigns;
 create policy "Public reads active campaigns"
