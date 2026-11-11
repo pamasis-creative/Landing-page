@@ -6,8 +6,10 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const qs=new URLSearchParams(location.search);
   const requested=qs.get('campaign');
-  const source=qs.get('utm_source')||qs.get('source')||'direct';
-  const medium=qs.get('utm_medium')||'';
+  let source=qs.get('utm_source')||qs.get('source')||'';
+  let medium=qs.get('utm_medium')||'';
+  try{if(source){sessionStorage.setItem('pamasis_utm_source',source);sessionStorage.setItem('pamasis_utm_medium',medium);}else{source=sessionStorage.getItem('pamasis_utm_source')||'direct';medium=sessionStorage.getItem('pamasis_utm_medium')||'';}if(requested)sessionStorage.setItem('pamasis_campaign_entry',requested);}catch(e){if(!source)source='direct';}
+  
   let sessionKey='';
   try{sessionKey=sessionStorage.getItem('pamasis_campaign_session')||('ps-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,9));sessionStorage.setItem('pamasis_campaign_session',sessionKey);}catch(e){}
   const get=async path=>{const r=await fetch(base+path,{headers,cache:'no-store'});if(!r.ok)throw new Error('Campaign API '+r.status);return r.json();};
