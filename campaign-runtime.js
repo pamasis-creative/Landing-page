@@ -18,11 +18,11 @@
   const safeUrl=value=>{try{const u=new URL(value,location.href);return ['http:','https:'].includes(u.protocol)?u.href:'';}catch(e){return '';}};
   const mediaMarkup=(m)=>{const url=esc(safeUrl(m.source_url)),title=esc(m.title||'Related PAMASIS content'),desc=esc(m.description||'');if(m.media_kind==='image')return url?'<img src="'+url+'" alt="'+title+'" loading="lazy">':'';
     if(m.media_kind==='video')return url?'<video controls playsinline preload="metadata" src="'+url+'"></video>':'';
-    if(m.media_kind==='social'||m.media_kind==='link')return url?'<a class="campaign-media-link" href="'+url+'" target="_blank" rel="noopener noreferrer">'+(m.thumbnail_url?'<img src="'+esc(m.thumbnail_url)+'" alt="'+title+'" loading="lazy">':'')+'<span><strong>'+title+'</strong>'+(desc?'<small>'+desc+'</small>':'')+'<em>Open related content ↗</em></span></a>':'';
+    if(m.media_kind==='social'||m.media_kind==='link')return url?'<a class="campaign-media-link" href="'+url+'" target="_blank" rel="noopener noreferrer">'+(safeUrl(m.thumbnail_url)?'<img src="'+esc(safeUrl(m.thumbnail_url))+'" alt="'+title+'" loading="lazy">':'')+'<span><strong>'+title+'</strong>'+(desc?'<small>'+desc+'</small>':'')+'<em>Open related content ↗</em></span></a>':'';
     return '';
   };
   const render=(c,assets,slot,matched)=>{const section=document.querySelector('[data-campaign-slot="'+slot+'"]');if(!section)return;
-    const legacy=(!assets||!assets.length)&&c.media_url&&c.media_type!=='none'?[{media_kind:c.media_type,source_url:c.media_url,title:c.title}]:[];
+    const legacyUrl=safeUrl(c.media_url);const legacy=(!assets||!assets.length)&&legacyUrl&&c.media_type!=='none'?[{media_kind:c.media_type,source_url:legacyUrl,title:c.title}]:[];
     const items=assets&&assets.length?assets:legacy;
     const media=items.length?'<div class="campaign-media" data-carousel="'+esc(c.id)+'"><div class="campaign-media-track">'+items.map((m,i)=>'<div class="campaign-media-item" data-media-index="'+i+'" '+(i?'hidden':'')+'>'+mediaMarkup(m)+'</div>').join('')+'</div>'+(items.length>1?'<div class="campaign-carousel-controls"><button type="button" data-prev aria-label="Previous media">‹</button><span data-count>1 / '+items.length+'</span><button type="button" data-next aria-label="Next media">›</button></div>':'')+'</div>':'';
     const article=document.createElement('article');article.className='campaign-card layout-'+esc(c.layout||'split')+(matched?' campaign-attributed':'');
