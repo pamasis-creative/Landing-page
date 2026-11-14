@@ -57,5 +57,5 @@
     });
     // Any active campaign without an explicit placement remains safely discoverable in the secondary slot.
     active.filter(c=>!placed.has(c.id)).forEach(c=>render(c,assets(c.id),'secondary',false));
-  }).catch(()=>{});
+  }).catch(error=>{console.error('PAMASIS campaign delivery failed:',error);let notice=document.getElementById('pamasis-campaign-error');if(!notice){notice=document.createElement('div');notice.id='pamasis-campaign-error';notice.setAttribute('role','status');notice.style.cssText='margin:16px auto;padding:12px 16px;max-width:1180px;border-left:3px solid #b18a45;background:#f6f2e9;color:#123d2d;font:14px/1.5 sans-serif';const first=document.querySelector('[data-campaign-slot]');if(first)first.parentNode.insertBefore(notice,first);else document.body.appendChild(notice);}notice.textContent='PAMASIS campaign content is temporarily unavailable. Please refresh the page or try again shortly.';});
 })();
