@@ -21,17 +21,9 @@ alter table public.pamasis_campaigns
 alter table public.pamasis_campaign_placements
   drop constraint if exists pamasis_campaign_placements_placement_key_check;
 
--- Convert the old promotion-category labels into actual homepage positions.
--- The mapping preserves existing placement rows while changing their meaning.
-update public.pamasis_campaign_placements
-set placement_key = case placement_key
-  when 'featured' then 'after_hero'
-  when 'secondary' then 'mid_page'
-  when 'product' then 'after_trust'
-  when 'lead_magnet' then 'before_footer'
-  when 'related' then 'resource_area'
-  else placement_key
-end;
+-- Placement keys now describe physical positions in the existing homepage.
+-- Do not infer a position from an old promotion category; any existing rows
+-- must be deliberately reassigned by an administrator.
 
 alter table public.pamasis_campaign_placements
   add constraint pamasis_campaign_placements_placement_key_check
