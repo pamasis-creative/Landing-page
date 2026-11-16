@@ -27,7 +27,7 @@
     const media=items.length?'<div class="campaign-media" data-carousel="'+esc(c.id)+'"><div class="campaign-media-track">'+items.map((m,i)=>'<div class="campaign-media-item" data-media-index="'+i+'" '+(i?'hidden':'')+'>'+mediaMarkup(m)+'</div>').join('')+'</div>'+(items.length>1?'<div class="campaign-carousel-controls"><button type="button" data-prev aria-label="Previous media">‹</button><span data-count>1 / '+items.length+'</span><button type="button" data-next aria-label="Next media">›</button></div>':'')+'</div>':'';
     const article=document.createElement('article');article.className='campaign-card layout-'+esc(c.layout||'split')+(matched?' campaign-attributed':'');
     const internalTypes=['campaign_page','opt_in_page','sales_page','resource_page'];
-    const rawDestination=c.destination_url||c.cta_url||(internalTypes.includes(c.destination_type)?'campaign.html?slug='+encodeURIComponent(c.slug):'');
+    const rawDestination=c.destination_url||(internalTypes.includes(c.destination_type)?'campaign.html?slug='+encodeURIComponent(c.slug):c.cta_url);
     const ctaUrl=safeUrl(rawDestination);
     article.innerHTML='<div class="wrap campaign-grid"><div class="campaign-copy"><div class="eyebrow">'+esc(c.eyebrow||'Featured by PAMASIS')+'</div><h2>'+esc(c.headline)+'</h2><p>'+esc(c.body).replace(/\n/g,'<br>')+'</p>'+(ctaUrl?'<a class="btn btn-primary campaign-cta" href="'+esc(ctaUrl)+'" rel="noopener noreferrer">'+esc(c.cta_label||'Explore more')+' ↗</a>':'')+'</div>'+media+'</div>';
     section.appendChild(article);section.hidden=false;
