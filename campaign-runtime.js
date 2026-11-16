@@ -43,19 +43,20 @@
     if(!active.length)return;
     const byId=id=>active.find(c=>c.id===id);
     const assets=id=>media.filter(m=>m.campaign_id===id);
-    const slots=['featured','secondary','product','lead_magnet','related'];
+    const slots=['after_hero','after_trust','mid_page','before_closing','before_footer'];
     const matched=requested?active.find(c=>c.slug===requested):null;
-    const explicitlyPlaced=new Set(placements.map(p=>p.campaign_id));
-    if(matched)render(matched,assets(matched.id),'featured',true);
+    const homepagePlacements=placements.filter(p=>slots.includes(p.placement_key));
+    const explicitlyPlaced=new Set(homepagePlacements.map(p=>p.campaign_id));
+    if(matched&&matched.show_on_homepage!==false)render(matched,assets(matched.id),'after_hero',true);
     slots.forEach(slot=>{
       const section=document.querySelector('[data-campaign-slot="'+slot+'"]');if(!section)return;
-      const rows=placements.filter(p=>p.placement_key===slot).sort((a,b)=>a.display_order-b.display_order);
+      const rows=homepagePlacements.filter(p=>p.placement_key===slot).sort((a,b)=>a.display_order-b.display_order);
       let selected=rows.map(p=>byId(p.campaign_id)).filter(Boolean);
       if(slot==='featured'&&matched)selected=[matched,...selected.filter(c=>c.id!==matched.id)];
-      if(!placements.length&&slot==='featured'&&!matched)selected=active.slice(0,1);
-      selected.forEach(c=>{if(!(slot==='featured'&&matched&&c.id===matched.id))render(c,assets(c.id),slot,false);});
+      if(!homepagePlacements.length&&slot==='after_hero'&&!matched)selected=active.filter(c=>c.show_on_homepage!==false).slice(0,1);
+      selected.forEach(c=>{if(c.show_on_homepage!==false&&!(slot==='after_hero'&&matched&&c.id===matched.id))render(c,assets(c.id),slot,false);});
     });
     // Campaigns with no explicit section remain discoverable in the secondary slot.
-    active.filter(c=>!explicitlyPlaced.has(c.id)).forEach(c=>render(c,assets(c.id),'secondary',false));
+    active.filter(c=>c.show_on_homepage!==false&&!explicitlyPlaced.has(c.id)).slice(0,1).forEach(c=>render(c,assets(c.id),'after_hero',false));
   }).catch(error=>{console.error('PAMASIS campaign delivery failed:',error);let notice=document.getElementById('pamasis-campaign-error');if(!notice){notice=document.createElement('div');notice.id='pamasis-campaign-error';notice.setAttribute('role','status');notice.style.cssText='margin:16px auto;padding:12px 16px;max-width:1180px;border-left:3px solid #b18a45;background:#f6f2e9;color:#123d2d;font:14px/1.5 sans-serif';const first=document.querySelector('[data-campaign-slot]');if(first)first.parentNode.insertBefore(notice,first);else document.body.appendChild(notice);}notice.textContent='PAMASIS campaign content is temporarily unavailable. Please refresh the page or try again shortly.';});
 })();
