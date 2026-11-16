@@ -50,12 +50,30 @@
 .campaign-cta{margin-top:12px}
 @media(max-width:850px){.campaign-section{padding:58px 0}.campaign-grid,.campaign-section.layout-banner .campaign-grid{grid-template-columns:1fr;gap:25px}}
 
+
+/* PAMASIS offerings */
+.offerings-intro{max-width:780px;margin:-18px 0 42px;color:var(--muted);font-size:1.03rem}
+.offering-list{display:grid;gap:22px}
+.offering{display:grid;grid-template-columns:.82fr 1.18fr;gap:34px;align-items:center;background:var(--cream);border:1px solid var(--line);padding:26px}
+.offering:nth-child(even){grid-template-columns:1.18fr .82fr}
+.offering:nth-child(even) .offering-visual{order:2}
+.offering-visual{min-height:260px;background:#e9e4d8;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:5px}
+.offering-visual img{display:block;width:100%;height:100%;max-height:360px;object-fit:cover}
+.offering-visual.product-shot{background:#f6f2e9}
+.offering-visual.product-shot img{object-fit:contain;max-height:390px;mix-blend-mode:multiply}
+.offering-copy .eyebrow{margin-bottom:9px}
+.offering-copy h3{font:700 clamp(1.45rem,2.6vw,2rem)/1.18 Manrope,sans-serif;color:var(--green);letter-spacing:-.035em;margin:0 0 14px}
+.offering-copy p{color:var(--muted);margin:0;font-size:.97rem;line-height:1.75}
+.offering-note{margin-top:34px;padding:28px 32px;border-left:3px solid var(--gold);background:var(--green);color:white}
+.offering-note strong{display:block;font:700 1.3rem Manrope,sans-serif;margin-bottom:6px}
+.offering-note p{margin:0;color:rgba(255,255,255,.76)}
+@media(max-width:850px){.offering,.offering:nth-child(even){grid-template-columns:1fr;gap:22px;padding:18px}.offering:nth-child(even) .offering-visual{order:0}.offering-visual{min-height:210px}.offering-visual img{max-height:280px}.offering-note{padding:23px}}
 </style>
 </head>
 <body>
 <header class="site-header"><div class="wrap nav">
 <a class="brand" href="#top" aria-label="PAMASIS home"><img class="brand-logo" src="./assets/pamasis-logo-light.png" alt="PAMASIS" width="88" height="74"></a>
-<nav class="nav-links" aria-label="Main navigation"><a href="#about">Our thinking</a><a href="#growth">Growth</a><a href="#approach">Our approach</a><a href="#solutions">Our philosophy</a><a class="btn btn-primary" href="#contact">Contact</a></nav>
+<nav class="nav-links" aria-label="Main navigation"><a href="#about">Our thinking</a><a href="#growth">Growth</a><a href="#approach">Our approach</a><a href="#solutions">Our philosophy</a><a href="#offerings">What we offer</a><a class="btn btn-primary" href="#contact">Contact</a></nav>
 </div></header>
 <main id="top">
 <section class="hero"><div class="wrap hero-grid">
@@ -120,6 +138,18 @@
 
 
 
+
+<section class="section" id="offerings"><div class="wrap">
+<div class="section-heading"><div class="eyebrow">What we bring to businesses today</div><h2>Practical solutions for the challenges businesses face.</h2></div>
+<p class="offerings-intro">PAMASIS is building an expanding ecosystem of solutions for businesses across industries. We're starting with food businesses, focusing on everyday challenges that affect how they operate, protect their profits and grow.</p>
+<div class="offering-list">
+<article class="offering"><div class="offering-visual product-shot"><img src="./assets/pamasis-25l-product.webp" alt="PAMASIS 25-litre palm oil keg"></div><div class="offering-copy"><div class="eyebrow">PAMASIS Palm Oil Supply</div><h3>A dependable ingredient behind a meal customers want to come back to.</h3><p>The taste and quality of a meal are influenced by the ingredients used to prepare it. When the palm oil in a kitchen varies in quality, it can affect the taste, appearance and consistency of the food customers receive. A dependable supply of palm oil with consistent quality helps food businesses maintain the standard of their meals and give customers a familiar experience each time they order. That consistency builds confidence in the kitchen — and gives customers another reason to return.</p></div></article>
+<article class="offering"><div class="offering-visual"><img src="./assets/profit-pricing-intelligence.webp" alt="Food business owner reviewing meal costs and pricing"></div><div class="offering-copy"><div class="eyebrow">Profit &amp; Pricing Intelligence</div><h3>Set prices with a clear understanding of what your business actually earns.</h3><p>Many food businesses set prices by looking at what competitors charge, without knowing whether those prices cover their own costs. Some do not know what it truly costs to prepare each meal; others make sales every day without knowing how much profit they are keeping. PAMASIS Profit &amp; Pricing Intelligence helps owners understand their costs, set prices using their own business figures, measure profitability and work out what they need to sell to reach their profit goals. Instead of matching the market and hoping money is left over, they can make informed decisions and protect their margins.</p></div></article>
+<article class="offering"><div class="offering-visual"><img src="./assets/profit-leak-assessment.webp" alt="Food business owner checking costs, stock and daily operations"></div><div class="offering-copy"><div class="eyebrow">Profit Leak Assessment</div><h3>Find the money slipping away in the everyday running of your business.</h3><p>A business can make sales every day and still lose money in ways its owner does not immediately notice. Sometimes it is what happens behind the scenes: practices that are not properly controlled, costs that are not monitored, waste that goes unnoticed or important actions that are overlooked. PAMASIS Profit Leak Assessment helps food-business owners identify potential profit leaks, understand where current practices may be costing them money and recognise what needs attention — so they can start addressing the issues standing between the business and better profitability.</p></div></article>
+<article class="offering"><div class="offering-visual"><img src="./assets/practical-business-resources.webp" alt="Practical business workbook and planning materials"></div><div class="offering-copy"><div class="eyebrow">Practical Business Resources</div><h3>Useful guidance for the decisions and challenges that come with running a business.</h3><p>Running a business often means making important decisions without the right information or practical guidance. PAMASIS resources are designed to help business owners understand real business situations, avoid preventable mistakes and approach decisions with greater clarity. The aim is simple: useful knowledge and practical direction that can be applied to the work of building a stronger business.</p></div></article>
+</div>
+<div class="offering-note"><strong>We're starting here, but there's room for more.</strong><p>Food businesses are our starting point, not the limit of our ambition. As PAMASIS grows, so will the solutions and opportunities we bring to businesses across different industries.</p></div>
+</div></section>
 <section id="campaign-before-closing" class="campaign-section" data-campaign-slot="before_closing" aria-label="More from PAMASIS" hidden></section>
 <section id="contact" class="closing"><div class="wrap"><div class="eyebrow">The future is built from what you do next</div><h2>Your business can become more than it is today.</h2><p>Whether you are starting, finding your footing, strengthening what already works or preparing for another stage of growth, let's explore what may be possible.</p><a class="btn" data-cta="closing" href="https://wa.me/2348085898530?text=Hello%20PAMASIS%2C%20I%27d%20like%20to%20explore%20how%20PAMASIS%20can%20help%20my%20business%20grow.">Talk to PAMASIS on WhatsApp <span aria-hidden="true">↗</span></a></div></section>
 <section id="campaign-before-footer" class="campaign-section" data-campaign-slot="before_footer" aria-label="PAMASIS resources and updates" hidden></section>
