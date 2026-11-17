@@ -54,20 +54,20 @@
 /* PAMASIS offerings */
 .offerings-intro{max-width:780px;margin:-18px 0 42px;color:var(--muted);font-size:1.03rem}
 .offering-list{display:grid;gap:22px}
-.offering{display:grid;grid-template-columns:1fr;gap:22px;align-items:stretch;background:var(--cream);border:1px solid var(--line);padding:30px}
-.offering:nth-child(even){grid-template-columns:1fr}
-.offering:nth-child(even) .offering-visual{order:0}
-.offering-visual{min-height:360px;background:#e9e4d8;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:5px}
-.offering-visual img{display:block;width:100%;height:100%;min-height:360px;max-height:520px;object-fit:contain}
+.offering{display:grid;grid-template-columns:.82fr 1.18fr;gap:34px;align-items:center;background:var(--cream);border:1px solid var(--line);padding:26px}
+.offering:nth-child(even){grid-template-columns:1.18fr .82fr}
+.offering:nth-child(even) .offering-visual{order:2}
+.offering-visual{min-height:260px;background:#e9e4d8;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:5px}
+.offering-visual img{display:block;width:100%;height:100%;max-height:360px;object-fit:cover}
 .offering-visual.product-shot{background:#f6f2e9}
-.offering-visual.product-shot img{object-fit:contain;max-height:520px;mix-blend-mode:normal}
+.offering-visual.product-shot img{object-fit:contain;max-height:390px;mix-blend-mode:multiply}
 .offering-copy .eyebrow{margin-bottom:9px}
 .offering-copy h3{font:700 clamp(1.45rem,2.6vw,2rem)/1.18 Manrope,sans-serif;color:var(--green);letter-spacing:-.035em;margin:0 0 14px}
 .offering-copy p{color:var(--muted);margin:0;font-size:.97rem;line-height:1.75}
 .offering-note{margin-top:34px;padding:28px 32px;border-left:3px solid var(--gold);background:var(--green);color:white}
 .offering-note strong{display:block;font:700 1.3rem Manrope,sans-serif;margin-bottom:6px}
 .offering-note p{margin:0;color:rgba(255,255,255,.76)}
-@media(max-width:850px){.offering,.offering:nth-child(even){grid-template-columns:1fr;gap:20px;padding:18px}.offering-visual{min-height:280px}.offering-visual img{min-height:280px;max-height:420px}.offering-note{padding:23px}}
+@media(max-width:850px){.offering,.offering:nth-child(even){grid-template-columns:1fr;gap:22px;padding:18px}.offering:nth-child(even) .offering-visual{order:0}.offering-visual{min-height:210px}.offering-visual img{max-height:280px}.offering-note{padding:23px}}
 </style>
 </head>
 <body>
@@ -78,33 +78,33 @@
 <main id="top">
 <section class="hero"><div class="wrap hero-grid">
 <div>
-<div class="eyebrow">A transformational company · Built for Quality. Designed for Scale.</div>
-<h1>Transforming what exists today into something greater.</h1>
+<div class="eyebrow">Built for Quality. Designed for Scale.</div>
+<h1>Every business is something today and has the potential to become something greater.</h1>
 <div class="hero-copy">
-<p>We believe people, businesses and everyday life can be better than they are today. The products we use, the businesses we build and the opportunities we create can all move beyond their present form.</p>
-<p>PAMASIS is building an expanding ecosystem of products, resources, systems, intelligence, technology and practical solutions to help make that transformation possible.</p>
-<p>Whether someone is looking for a better everyday product, a business is working through a challenge, or an organisation is preparing for a new opportunity, our ambition is to bring together what is needed to move forward.</p>
-<p>We are building for more than the demands of today — creating value that can grow, reach further and endure.</p>
+<p>Whether it is just beginning, finding its footing, expanding or already established, its present position does not have to define its full potential.</p>
+<p>There is always room to discover more opportunities, strengthen what already works, improve what doesn’t, and build towards something greater.</p>
+<p>At PAMASIS, we believe businesses should be built for more than the demands of today. They should be positioned for the opportunities of tomorrow and equipped to create value that endures.</p>
+<p>PAMASIS is a transformational company building an expanding ecosystem of products, resources, systems, intelligence and practical solutions — helping people and businesses move from where they are today towards something better.</p>
 </div>
 <div class="hero-actions"><a class="btn btn-primary" data-open-chat href="#contact-chat" style="background:var(--gold);color:#172f23">Start a conversation <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#approach">Discover our approach <span aria-hidden="true">↓</span></a></div>
 <div class="hero-note">Growth • Intelligence • Practical solutions • Lasting value</div>
 </div>
 <div class="visual"><div class="visual-frame" style="width:min(100%,450px);aspect-ratio:4/5;border-radius:12px;background:linear-gradient(145deg,#f6f2e9,#d9c89f);padding:34px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 24px 80px rgba(0,0,0,.2)">
-<div><div class="eyebrow" style="color:var(--green)">The PAMASIS perspective</div><div style="font:800 clamp(2.5rem,5vw,4.5rem)/.98 Manrope,sans-serif;letter-spacing:-.07em;color:var(--green);margin-top:26px">People.<br>Businesses.<br><span style="color:var(--gold)">Possibilities.</span></div></div>
-<div style="border-top:1px solid rgba(18,61,45,.25);padding-top:18px;color:var(--green);font-size:.9rem">From what exists today to what can become possible tomorrow.</div>
+<div><div class="eyebrow" style="color:var(--green)">The PAMASIS perspective</div><div style="font:800 clamp(2.5rem,5vw,4.5rem)/.98 Manrope,sans-serif;letter-spacing:-.07em;color:var(--green);margin-top:26px">Every business<br>can become<br><span style="color:var(--gold)">more.</span></div></div>
+<div style="border-top:1px solid rgba(18,61,45,.25);padding-top:18px;color:var(--green);font-size:.9rem">From where your business is today to what it can become tomorrow.</div>
 </div></div>
 </div></section>
 <section id="campaign-after-hero" class="campaign-section" data-campaign-slot="after_hero" aria-label="PAMASIS featured promotions" hidden></section>
 <div class="trust-strip"><div class="wrap trust-inner"><div class="trust-item"><b>✳</b><span>Better possibilities for people</span></div><div class="trust-item"><b>↗</b><span>Products and solutions that move us forward</span></div><div class="trust-item"><b>◎</b><span>Value that endures</span></div></div></div>
 <section id="campaign-after-trust" class="campaign-section" data-campaign-slot="after_trust" aria-label="PAMASIS promotions" hidden></section>
 
-<section class="section" id="growth"><div class="wrap"><div class="section-heading"><div class="eyebrow">Why transformation matters</div><h2>Progress should lead to something better.</h2><p>A business can be in motion without making meaningful progress. It can be working hard without becoming stronger, generating sales without enough profit, or expanding in one area while other parts fall behind.</p></div>
+<section class="section" id="growth"><div class="wrap"><div class="section-heading"><div class="eyebrow">The challenge</div><h2>The greatest enemy is growth that never happens.</h2><p>A business can be in motion without making meaningful progress. It can be working hard without becoming stronger, generating sales without enough profit, or expanding in one area while other parts fall behind.</p></div>
 <div class="split-grid" style="grid-template-columns:1.05fr .95fr;gap:40px;align-items:start">
 <div><p style="font-size:1.04rem;color:var(--muted)">Some businesses struggle to get off the ground. Others cannot gain traction. Some remain busy but make little or no money. Others experience stagnation, mounting losses, decline or, eventually, closure.</p><p style="font-size:1.04rem;color:var(--muted)">Even businesses that are already growing can have hidden weaknesses, missed opportunities and unrealised potential. Revenue may be increasing while profit is shrinking. Customers may be coming in without returning. Operations may be limiting the next stage of expansion.</p><p style="font-size:1.04rem;color:var(--muted)">And sometimes, a business does not know what is holding it back. The visible problem may only be a symptom of something deeper.</p></div>
 <div class="quote-card"><p>The question is not only where your business is today. It is how much further it can go — and what needs to change to get there.</p><span>Growth begins with seeing the full picture</span></div>
 </div>
 <div class="section-heading" style="margin:50px 0 0;max-width:850px"><h2 style="font-size:clamp(1.8rem,3.2vw,2.7rem)">From starting at zero to reaching the next level, every business deserves the opportunity to grow.</h2></div>
-<div class="quote-card" style="margin-top:42px"><p>Growth is more than getting bigger. It is becoming better, creating meaningful value and building something greater that lasts. That transformation begins when we see beyond what exists today.</p><span>The PAMASIS growth belief</span></div></div></section>
+</div></section>
 <section id="campaign-mid-page" class="campaign-section" data-campaign-slot="mid_page" aria-label="PAMASIS featured content" hidden></section>
 <section class="section split" id="belief"><div class="wrap split-grid">
 <div><div class="eyebrow">Our belief</div><h2>There may be more potential in your business than you realise.</h2>
@@ -148,15 +148,15 @@
 
 
 <section class="section" id="offerings"><div class="wrap">
-<div class="section-heading"><div class="eyebrow">What we bring to businesses today</div><h2>Practical solutions for the challenges businesses face.</h2></div>
-<p class="offerings-intro">PAMASIS is building an expanding commercial and transformational ecosystem. Food businesses are an important starting point for the solutions available today, but our wider ambition extends across products, resources, systems, intelligence and practical solutions for people and businesses. As the ecosystem develops, it can include everyday consumer products and FMCG, agricultural commodities and palm-fruit derivatives, technology products and services, and other useful commercial solutions. These are areas of future expansion, not a claim that every category is available today.</p>
+<div class="section-heading"><div class="eyebrow">What PAMASIS brings today</div><h2>Everyday products and practical business solutions.</h2></div>
+<p class="offerings-intro">Our current ecosystem brings together products for everyday use and practical solutions for businesses. Palm oil supply serves both home kitchens and food businesses, while our business tools and resources focus on the everyday challenges that affect how food businesses operate, protect their profits and grow.</p>
 <div class="offering-list">
-<article class="offering"><div class="offering-copy"><div class="eyebrow">PAMASIS Palm Oil Supply</div><div class="offering-visual product-shot"><img src="./assets/pamasis-25l-product.webp" alt="PAMASIS 25-litre palm oil keg"></div></article>
-<article class="offering"><div class="offering-copy"><div class="eyebrow">Profit &amp; Pricing Intelligence</div><div class="offering-visual"><img src="./assets/profit-pricing-intelligence.svg" alt="Food business owner reviewing meal costs and pricing"></div></article>
-<article class="offering"><div class="offering-copy"><div class="eyebrow">Profit Leak Assessment</div><div class="offering-visual"><img src="./assets/profit-leak-assessment.svg" alt="Food business owner checking costs, stock and daily operations"></div></article>
-<article class="offering"><div class="offering-copy"><div class="eyebrow">Practical Business Resources</div><div class="offering-visual"><img src="./assets/practical-business-resources.svg" alt="Practical business workbook and planning materials"></div></article>
+<article class="offering"><div class="offering-visual product-shot"><img src="./assets/pamasis-25l-product.webp" alt="PAMASIS palm oil supply"></div><div class="offering-copy"><div class="eyebrow">PAMASIS Palm Oil Supply</div><h3>Reliable palm oil for home kitchens and food businesses.</h3><p>The quality of palm oil matters whether you are preparing meals at home or serving customers every day. Consistent quality helps preserve the taste, appearance and standard of the food being prepared. PAMASIS supplies palm oil for everyday household use and for food businesses that need a dependable ingredient they can build their cooking around.</p></div></article>
+<article class="offering"><div class="offering-visual"><img src="./assets/profit-pricing-intelligence.svg" alt="Food business owner reviewing meal costs and pricing"></div><div class="offering-copy"><div class="eyebrow">Profit &amp; Pricing Intelligence</div><h3>Set prices with a clear understanding of what your business actually earns.</h3><p>Many food businesses set prices by looking at what competitors charge, without knowing whether those prices cover their own costs. Some do not know what it truly costs to prepare each meal; others make sales every day without knowing how much profit they are keeping. PAMASIS Profit &amp; Pricing Intelligence helps owners understand their costs, set prices using their own business figures, measure profitability and work out what they need to sell to reach their profit goals. Instead of matching the market and hoping money is left over, they can make informed decisions and protect their margins.</p></div></article>
+<article class="offering"><div class="offering-visual"><img src="./assets/profit-leak-assessment.svg" alt="Food business owner checking costs, stock and daily operations"></div><div class="offering-copy"><div class="eyebrow">Profit Leak Assessment</div><h3>Find the money slipping away in the everyday running of your business.</h3><p>A business can make sales every day and still lose money in ways its owner does not immediately notice. Sometimes it is what happens behind the scenes: practices that are not properly controlled, costs that are not monitored, waste that goes unnoticed or important actions that are overlooked. PAMASIS Profit Leak Assessment helps food-business owners identify potential profit leaks, understand where current practices may be costing them money and recognise what needs attention — so they can start addressing the issues standing between the business and better profitability.</p></div></article>
+<article class="offering"><div class="offering-visual"><img src="./assets/practical-business-resources.svg" alt="Practical business workbook and planning materials"></div><div class="offering-copy"><div class="eyebrow">Practical Business Resources</div><h3>Useful guidance for the decisions and challenges that come with running a business.</h3><p>Running a business often means making important decisions without the right information or practical guidance. PAMASIS resources are designed to help business owners understand real business situations, avoid preventable mistakes and approach decisions with greater clarity. The aim is simple: useful knowledge and practical direction that can be applied to the work of building a stronger business.</p></div></article>
 </div>
-<div class="offering-note"><strong>Our current offerings are a starting point, not the limit of PAMASIS.</strong><p>We are building towards a wider ecosystem that can serve people, businesses and different industries through products, resources, systems, intelligence, technology and practical commercial solutions.</p></div>
+<div class="offering-note"><strong>These are the foundations of a wider PAMASIS ecosystem.</strong><p>Business solutions are an important part of what we are building, alongside products that serve everyday needs. As PAMASIS develops, the ecosystem can continue to grow into new products, resources and practical solutions.</p></div>
 </div></section>
 <section id="campaign-before-closing" class="campaign-section" data-campaign-slot="before_closing" aria-label="More from PAMASIS" hidden></section>
 <section id="contact" class="closing"><div class="wrap"><div class="eyebrow">The future is built from what you do next</div><h2>Let’s build towards something greater.</h2><p>Whether you are looking for a better product, exploring a new opportunity or working towards a stronger business, start a conversation with PAMASIS and let’s explore what may be possible.</p><div class="hero-actions" style="justify-content:center"><a class="btn btn-primary" data-open-chat href="#contact-chat" style="background:var(--gold);color:#172f23">Chat with PAMASIS <span aria-hidden="true">↗</span></a><a class="btn btn-outline" data-cta="closing-whatsapp" href="https://wa.me/2348085898530?text=Hello%20PAMASIS%2C%20I%27d%20like%20to%20explore%20how%20PAMASIS%20can%20help%20my%20business%20grow.">WhatsApp <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="mailto:pamasisinc@gmail.com">Email us <span aria-hidden="true">↗</span></a></div></div></section>
